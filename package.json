@@ -1,6 +1,6 @@
 {
   "name": "height",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Get the height the element should be ",
   "main": "index.js",
   "directories": {
