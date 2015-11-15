@@ -20,7 +20,7 @@ function height(node) {
   var child = lastVisible(node)
   var pb = parseInt(computedStyle(node, 'paddingBottom'), 10)
   if (!child) return 0
-  var mb = parseInt(computedStyle(child, 'marginBottom'), 10)
+  var mb = pb ? parseInt(computedStyle(child, 'marginBottom'), 10) : 0
   var cb = child.getBoundingClientRect().bottom
   var r = node.getBoundingClientRect()
   var res = r.height + (cb - r.bottom) + mb + pb
