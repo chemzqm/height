@@ -19,7 +19,8 @@ function lastVisible(el) {
 function height(node) {
   var child = lastVisible(node)
   var pb = parseInt(computedStyle(node, 'paddingBottom'), 10)
-  if (!child) return 0
+  var pt = parseInt(computedStyle(node, 'paddingTop'), 10)
+  if (!child) return pb + pt
   var mb = pb ? parseInt(computedStyle(child, 'marginBottom'), 10) : 0
   var cb = child.getBoundingClientRect().bottom
   var r = node.getBoundingClientRect()

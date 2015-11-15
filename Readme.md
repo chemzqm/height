@@ -4,6 +4,7 @@
 
 Get the height the element should be when use `height: auto`
 
+Sometimes min-height has bugs or can not be used
 
 ## Install
 
@@ -13,7 +14,16 @@ Get the height the element should be when use `height: auto`
 
 ``` js
 var height = require('height')
-var h = height(element)
+// only used for box-sizing: border-box
+function setHeight(el) {
+  if (el.style.height == 'auto') return
+  var h = height(el)
+  if (h < 200) {
+    el.style.height = h + 'px'
+  } else {
+    el.style.height = 'auto'
+  }
+}
 ```
 
 ## API
