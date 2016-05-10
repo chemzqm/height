@@ -22,9 +22,9 @@ function height(node) {
   var pt = parseInt(computedStyle(node, 'paddingTop'), 10)
   if (!child) return pb + pt
   var r = node.getBoundingClientRect()
-  var mb = Math.max(parseInt(computedStyle(child, 'marginBottom'), 10), pb)
+  var mb = pb ? parseInt(computedStyle(child, 'marginBottom'), 10) : 0
   var cb = child.getBoundingClientRect().bottom
-  return r.top - cb + mb
+  return cb - r.top + mb + pb
 }
 
 module.exports = height
